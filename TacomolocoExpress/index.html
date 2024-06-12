@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My simracing history</title>
+    <meta name="description" content="This is a blog about my simracing history, this is a hobby that i have been doing for couple of years and have some experiences i want to share">
+    <meta name="author" content="Rodrigo Baldioceda">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c6d80929c8.js" crossorigin="anonymous"></script>
+
+    <meta property="og:title" content="My race craft">
+    <meta property="og:type"  content="website">
+    <meta property="og:url"   content="https://www.MyRaceCraft">
+    <meta property="og:description" content="This is a blog about my simracing history, this is a hobby that i have been doing for couple of years and have some experiences i want to share">
+    <!-- <meta property="og:image" content="logo2.png"> -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="script" href="logic.js">
+</head>
+<body>
+     
+    <header>
+        <a class="logo">Tacomoloco Express</a>
+
+        <nav class="navBar">
+            <a href="lapTimes.html"> Crear pedido</a>
+            <a href="index.html">Actualizar pedido</a>
+            <a href="index.html">Borrar pedido</a>
+        </nav>
+    </header>
+     
+    <div class="main">
+        <aside class="left">
+            <h3>Quienes somos?</h3>
+           <br>
+           <div class="simGear">
+
+           
+            <p class="bio">
+                Bienvenidos a Tacomoloco Express! Sumérgete en una experiencia gastronómica que despierta tus sentidos y te hace perder la cabeza por sus deliciosos sabores. 
+                En nuestro restaurante de comida rápida, fusionamos lo mejor de la cocina tradicional con la innovación y la frescura de los ingredientes modernos.  
+                Tacomoloco Express es el lugar perfecto para disfrutar de una comida rápida de calidad con amigos y familiares. 
+                <br><br>
+                <h2 id="eslogan">¡descubre sabores que te vuelven loco en cada bocado!</h2>
+            </p>
+           
+               <br>
+        
+        </aside>
+
+        <main class="center">
+            <h1>Nuestros productos</h1>
+
+            <!----img slider start---->
+            <div class="slider">
+                <div class="slides">
+                    <!--radio button start-->
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <!--radio button end-->
+
+                    <!--slide img start-->
+                    <div class="slide first">
+                        <img src="resources/Tacos.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="resources/burger.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="resources/Pizza.jpg">
+                    </div>
+                    <!--slide img end-->
+
+                    <!--auto navigation start-->
+                    <div class="navigation-auto">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                    </div>
+                    <!--auto navigation end-->
+                </div>
+                <!--manual navigation start-->
+                <div class="navigation-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                </div>
+                <!--manual navigation end-->
+
+            <!----img slider end---->
+            </div>
+            <br><br><br><br><br><br>
+            <h1>Nuestros restaurantes</h1>
+            <section >
+                <div class="Simulators">
+
+            <div id="ac">
+            <h3 id="ac-title">Sucursal Escazu</h3>
+            <img src="resources/restaurant1.jpg" id="ac-logo">
+            </div>
+
+            <div class="rfactor">
+                <h3>Sucursal barrio escalante</h3>
+                <img src="resources/restaurant2.jpg" id="rfactor">
+                </div>
+
+           
+
+            <div class="iracing">
+            <h3>Sucursal Puntarenas centro</h3>
+            <img src="resources/restaurant3.jpg" id="iracing-logo">
+            </div>
+
+            <div class="acc">
+                <h3>Sucursal Liberia</h3>
+                <img src="resources/restaurant4.jpg" id="acc-logo">
+                </div>
+        
+        </div>
+        </section>
+        </main>
+
+        <aside class="right">
+            <h3>Cuales de nuestros productos has probado?</h3>
+                <br>
+            <div class="SimracinGoals">
+                <ul>
+                    <li> <input type="checkbox" value="1-1">MexiTacos</li>
+                    <li> <input type="checkbox" value="1-2">Nachos locos</li>
+                    <li> <input type="checkbox" value="1-3">Pizza briza</li>
+                </ul>
+    
+                <div class="checkbox-btn1">
+                    <button onclick="save()" id="checkbox-btn" class="list-btn">Save</button>
+                    <button onclick="load_()" id="checkbox-btn" class="list-btn">Load</button>
+                </div>
+            </div>
+            <script type="text/javascript" src="logic.js"></script>
+        </aside>
+    </div>
+    <footer class="footer">
+        <div class="footer-socials">
+
+            <p id="links-title">Nuestras redes</p>
+            <p> <a href="//www.linkedin.com/in/rodrigo-baldioceda-14a821249/" target="_blank" rel="noreferrer noopener"> <i class="fa-brands fa-linkedin" style="font-size:30px;"></i>Linkedin</a></p>
+            <p> <a href="https://github.com/Galleto15" target="_blank" rel="noreferrer noopener"> <i class="fa-brands fa-square-github" style="font-size:30px;"></i>GitHub</a></p>
+            <p> <a href="https://www.twitch.tv/galleto15" target="_blank" rel="noreferrer noopener" title="This is were I stream must of my races"><i class="fa-brands fa-twitch" style="font-size:30px;"></i>Twitch</a></p>
+            <br><br><br>
+            <p id="credits">Made by: Rodrigo Baldioceda</p>
+            
+        </div>
+    </footer>
+
+</body>
+</html>

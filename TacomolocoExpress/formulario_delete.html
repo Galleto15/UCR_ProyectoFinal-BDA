@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros</title>
+    <!-- Agregar enlace a Bootstrap CSS para los estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <table id="tabla-registros" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Campo 1</th>
+                        <th>Campo 2</th>
+                        <th>Campo 3</th>
+                        <th>Campo 4</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aqui se agregan los registros en la función de JavaScript obtenerRegistros()-->
+            
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Agregar enlaces a Bootstrap JS y Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    
+    <!-- https://axios-http.com -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        
+        async function obtenerRegistros() {
+            const URL   = 'select_postgres.php';
+            const tabla = document.getElementById('tabla-registros');
+            const tbody = tabla.getElementsByTagName('tbody')[0];
+
+            try {
+                const response = await axios.get(URL);
+                const registros = response.data.registros;
+        
+                // Recorre cada registro y los agrega en la tabla
+                registros.forEach(registro => {
+                    const newRow = tbody.insertRow(); // Inserta una fila
+
+                    //Continúa agregando las celdas a cada fila
+                    // ID cell
+                    const idCell = newRow.insertCell();
+                    idCell.textContent = registro.id;
+
+                    // campo1
+                    const campo1Cell = newRow.insertCell();
+                    campo1Cell.textContent = registro.campo1;
+            
+                    // campo2
+                    const campo2Cell = newRow.insertCell();
+                    campo2Cell.textContent = registro.campo2;
+            
+                    // campo3
+                    const campo3Cell = newRow.insertCell();
+                    campo3Cell.textContent = registro.campo3;
+            
+                    // campo4
+                    const campo4Cell = newRow.insertCell();
+                    campo4Cell.textContent = registro.campo4;
+
+                    // opciones
+                    const opcionesCell = newRow.insertCell();
+                    opcionesCell.innerHTML = `<button class="btn btn-danger btn-xs" onclick="eliminarRegistro(${registro.id})">Eliminar</button>`;
+                });
+            } catch (error) {
+                alert(`${error.response.data.error}`);
+                console.error(`Error Obteniendo registros: ${error}`);
+            }
+        };
+
+        // Función que se invoca al presionar un botón para eliminar un registro
+        function eliminarRegistro(idRegistro) {
+            console.log("Eliminando", idRegistro);
+            const URL = `delete_postgres.php?id=${idRegistro}`;
+
+            axios.delete(URL).then(() => { // Envia al servidor consulta HTTP de tipo DELETE y espera su respuesta
+                alert("Registro eliminado");
+                window.location = "formulario_delete.html";
+
+            }).catch(() => {
+                alert(`${error.response.data.error}`);
+                console.error(`Error Obteniendo registros: ${error}`);
+            });
+
+        }
+
+    // Consultar registros
+    obtenerRegistros();
+
+    </script>
+</body>
+</html>

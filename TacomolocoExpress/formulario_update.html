@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar</title>
+    <!-- Agregar enlace a Bootstrap CSS para los estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 mt-5">
+                <h1 class="text-center mb-4">Formulario</h1>
+                <form action="" method="POST" id="formulario"> <!-- Aqui modificar el script en PHP que recibirá los datos -->
+                    <div class="mb-3">
+                        <select name="id-select" id="id-select" class="form-control">
+				            <option value="0">Seleccione</option>
+			            </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="campo1" class="form-label">Campo 1:</label>
+                        <input type="text" name="campo1" id="campo1" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="campo2" class="form-label">Campo 2:</label>
+                        <input type="text" name="campo2" id="campo2" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="campo3" class="form-label">Campo 3:</label>
+                        <input type="date" name="campo3" id="campo3" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="campo4" class="form-label">Campo 4:</label>
+                        <input type="text" name="campo4" id="campo4" class="form-control" required>
+                    </div>
+
+                    <input type="submit" value="Enviar" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agregar enlaces a Bootstrap JS y Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    
+    <!-- https://axios-http.com -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        const form = document.querySelector('#formulario'); //Seleccionamos el formulario en una variable
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Previene el comportamiento por defecto del formulario tras hacer click en el botón enviar
+            const formData = new FormData(event.target); // Obtiene los datos del formulario
+	
+	        if (formData.get("id-select") == "0"){
+		    alert("Seleccione el ID");
+		    return false;
+	        }
+
+            const data = {
+                id: formData.get("id-select"),
+                campo1: formData.get("campo1"),
+                campo2: formData.get("campo2"),
+                campo3: formData.get("campo3"),
+                campo4: formData.get("campo4")
+            };
+
+            axios.put('update_postgres.php', data, {  // Envia al servidor consulta HTTP de tipo PUT y espera su respuesta
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            }).then((response) => {
+              console.log(response.data);
+              alert("¡Datos Actualizados!");
+            }).catch((error) => {
+              alert(`${error.response.data.error}`);
+              console.log(error.response);
+            });
+        });
+
+    
+        // Obtiene los registros y los coloca en el control <SELECT> del formulario
+	    async function listarRegistrosCMB() {
+	    	const URL   = 'select_postgres.php';
+	    	const response = await axios.get(URL);
+            const registros = response.data.registros;
+
+            //Obtiene la variable SELECT por medio del id de la etiqueta: id-select
+	    	const selectID = document.getElementById('id-select');
+
+            registros.forEach(registro => {
+                const option = document.createElement("option");
+                option.value = registro.id;
+                option.textContent = registro.campo1;
+                option.textContent = `ID: ${registro.id} | ${registro.campo1} | ${registro.campo2} | ${registro.campo3} | ${registro.campo4}`;
+                selectID.appendChild(option);
+	    	});
+        
+	    }
+	
+	    //Lista los registros
+	    listarRegistrosCMB();
+    </script>
+</body>
+</html>

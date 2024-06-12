@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400..700&family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
+*{
+  margin: 0px; /*considerar cambiar a 0px*/
+  padding: 5px; /*SOLUCION BODY SPACING FIX SLIDER BUTTON*/
+  font-family: "Questrial", sans-serif;
+  box-sizing: border-box;
+}
+
+body{
+  height: auto;
+  /* background: url("resources/cool-background.png"); */
+  background: #493231, #BD502F, #9F2929;
+  background: -webkit-linear-gradient(90deg, #493231, #BD502F, #9F2929);
+  background: linear-gradient(90deg,#493231, #BD502F, #9F2929);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: sans-serif;
+  text-align: center;
+  color: #C0C0C0;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+header{
+  background: rgb(16, 123, 194);
+  background: transparent;
+  padding: 2em 0 2em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.logo{
+  font-family: "AR One Sans", sans-serif;
+  color: #FF910D;
+  font-size: 32px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.navBar a{
+  position: relative;
+   font-size: 18px;
+   color: white;
+   font-weight: 500;
+   text-decoration: none;
+   margin-left: 40px;
+}
+
+.navBar a::before{
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: .3s;
+}
+
+.navBar a:hover::before{
+  width: 100%;
+}
+
+.main{
+  display: flex;
+  flex: 1;
+}
+
+.left{
+  background: rgb(16, 123, 194);
+  padding: 3em 0 3em 0;
+  flex: 1 1 100px;
+  /* border-right: 3px solid #E86a0c; */
+  background: transparent;
+}
+
+.simGear{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.bio{
+  font-size: 23px;
+}
+
+#eslogan{
+font-family: "Bungee Shade", sans-serif;
+font-size: 25px;
+font-style: normal;
+color: #216B44;
+}
+
+#simGear{
+  border-bottom: 3px solid #FF910D;
+  padding-bottom: 60px;
+}
+
+
+
+.center{
+  background: rgb(16, 123, 194);
+  padding: 3em 0 3em 0;
+  flex: 5 5 150px;
+  background: transparent;
+}
+
+.Simulators{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  /* background-color: red; */
+  margin-top: 30px;
+  font-size: 25px;
+}
+
+#ac-logo{
+  height: 250px;
+  width: 345px;
+  margin-top: 15px;
+}
+
+#rfactor{
+  height: 250px;
+  width: 300px;
+  margin-top: 15px;
+}
+
+#iracing-logo{
+  height: 250px;
+  width: 300px;
+  margin-top: 15px;
+}
+
+.acc h3{
+  margin-top: 30px;
+}
+
+#acc-logo{
+  height: 400px;
+  width: 700px;
+  margin-top: 15px;
+}
+
+
+
+
+
+/*SIMRACING GOALS START*/
+.right{
+  background: rgb(16, 123, 194);
+  padding: 3em 0 3em 0;
+  flex: 1 1 100px;
+  background: transparent;
+}
+
+.SimracinGoals{
+  display: flex;
+  flex-direction: column;
+}
+
+.SimracinGoals input{
+  margin-right: 5px;
+}
+
+.SimracinGoals ul li{
+  display: flex;
+  justify-content: flex-start;
+  font-size: 17px;
+  list-style: none;
+}
+
+.checkbox-btn1{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  padding-right: 100px;
+  
+}
+
+.list-btn{
+  background-color: #C0C0C0; 
+  cursor: pointer;
+}
+
+#checkbox-btn{
+  height: 30px;
+  width:60px;
+  border-radius: 5px ;
+  border-color: #C0C0C0;
+}
+
+/*SIMRACING GOALS END*/
+
+
+
+
+
+footer{
+  background: rgb(16, 123, 194);
+  padding: 2em 0 0 0;
+  background: transparent;
+  font-size: 15px;
+  /* border-top: 3px solid  #FF910D; */
+}
+
+.footer-socials{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  border-top: 3px solid #FF910D;
+}
+
+.footer-socials a{
+  color: #C0C0C0;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.footer-socials a:hover{
+  color: #C0C0C0;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+#links-title{
+  border-bottom: 3px solid #FF910D;
+  padding-left: 10px;
+  font-size: 25px;
+}
+
+#credits{
+  font-size: 13px;
+}
+
+
+/*****RESPONSIVE START*****/
+@media all and (max-width: 550px){
+
+  .main{
+    flex-direction: column;
+  }
+
+  main{
+    padding: 5em 0 5em 0;
+  }
+}
+
+/*****RESPONSIVE END*****/
+
+
+
+
+/**********IMG SLIDER STYLE START************/
+
+.slider{
+  width: 1000px;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 105px;
+}
+
+.slides{
+width: 500%;
+height: 500px;
+display: flex;
+
+}
+
+.slides input{
+  display: none;
+}
+
+.slide{
+  width: 20%;
+  transition: 2s;
+}
+
+.slide img{
+  width: 900px;
+  height: 500px;
+  
+}
+
+/**style for manual slide navigation***/
+
+.navigation-manual{
+position: absolute;
+width: 900px;
+margin-top: -40px;
+display: flex;
+justify-content: center;
+}
+
+.manual-btn{
+border: 2px solid white;
+padding: 5px;
+
+border-radius: 10px;
+cursor: pointer;
+transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+  margin-right: 40px;
+}
+
+.manual-btn:hover{
+  background: white;
+}
+
+#radio1:checked ~ .first{
+  margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+  margin-left: -20%;
+}
+
+#radio3:checked ~ .first{
+  margin-left: -40%;
+}
+
+/*ccs for auto navigation start*/
+
+.navigation-auto{
+  position: absolute;
+  display: flex;
+  width: 890.4px;
+  justify-content: center;
+  margin-top: 455px;
+}
+.navigation-auto div{
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+
+}
+
+.navigation-auto div:not(:last-child){
+  margin-right: 41.6px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+  background: white;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2{
+  background: white;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3{
+  background: white;
+}
+/*ccs for auto navigation end*/
+
+/**********IMG SLIDER STYLE END************/
+
+
+
+
+
+  

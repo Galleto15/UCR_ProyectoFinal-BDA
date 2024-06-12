@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400..700&family=Abril+Fatface&display=swap');
+
+*{
+  margin: 0px; /*considerar cambiar a 0px*/
+  padding: 5px; /*SOLUCION BODY SPACING FIX SLIDER BUTTON*/
+  font-family: "Questrial", sans-serif;
+  box-sizing: border-box;
+}
+
+body{
+  height: 97.5VH;
+  /* background: url("resources/cool-background.png"); */
+  background: #004E8F, #FF910D;
+  background: -webkit-linear-gradient(90deg, #004E8F, #FF910D);
+  background: linear-gradient(90deg, #004E8F, #FF910D);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: sans-serif;
+  text-align: center;
+  color: #C0C0C0;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+}
